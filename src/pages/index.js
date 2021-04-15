@@ -1,10 +1,7 @@
 import React from "react";
-import { getGlobalVariables } from './environment.js';
-import Header from '../components/Header/Header';
-import Menu from '../components/Menu/Menu';
-import Home from '../components/Home/Home';
-import Footer from '../components/Footer/Footer';
-
+import Layout from '../components/Layout/Layout';
+import ThunderImage from '../images/lightning.jpg';
+// import { graphql } from 'gatsby';
 
 const appStyles1 = {
     backgroundColor: "black"
@@ -15,19 +12,33 @@ const appStyles =  {
     textAlign: "center"
 }
 
-
-
-// markup
-const IndexPage = () => {
-  return (
-    <div style={appStyles}>      
-      <Header appname={getGlobalVariables().appname} />
-      {/* <Menu /> */}
-      <Home />      
-      <Footer />
-    </div>
-  )
+const imgStyles = {
+    width: "100%"
 }
 
 
-export default  IndexPage
+// markup
+//const IndexPage = ({data}) => {
+  const IndexPage = () => {
+  return (
+    // <Layout data={data}>      
+    <Layout>
+      <div style={appStyles}>
+        <img style={imgStyles} src={ThunderImage} alt='Thunder storms' />
+      </div>
+    </Layout>
+  )
+}
+
+export default IndexPage;
+
+
+// export const query = graphql`    
+//     query HeaderQuery {
+//         site {
+//             siteMetadata {
+//                 appName
+//             }
+//         }
+//     }    
+// `

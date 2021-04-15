@@ -1,17 +1,26 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "gatsby"
 import * as menuStyles from "./Menu.module.css";
+
+
+const ListLink = props => (
+	<li style={{ display: `inline-block`, marginRight: `1rem` }}>
+	  <Link to={props.to}>{props.children}</Link>
+	</li>
+  )
 
 
 function Menu() {
     return (
-		<nav>
-			<Link exact to="/">Home</Link>&nbsp;|&nbsp;
-			<Link to="/locations">Locations</Link>&nbsp;|&nbsp;
-			<Link to="/meters">Meters</Link>&nbsp;|&nbsp;
-			<Link to="/readings">Readings</Link>&nbsp;|&nbsp;
-			<Link to="/about">About</Link>
-		</nav>
+		<div className={menuStyles.background}>
+			<ul>
+				<ListLink to="/">Home</ListLink >
+				<ListLink to="/locations">Locations</ListLink >
+				<ListLink to="/meters">Meters</ListLink >
+				<ListLink to="/readings">Readings</ListLink >
+				<ListLink to="/about">About</ListLink >
+			</ul>
+		</div>
     )
 }
 export default Menu;

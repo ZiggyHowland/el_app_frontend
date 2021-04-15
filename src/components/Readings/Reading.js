@@ -1,4 +1,4 @@
-import { getGlobalVariables } from '../environment.js';
+import { getGlobalVariables } from '../../environment.js';
 import './Reading.css';
 
 const data = [ 

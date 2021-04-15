@@ -1,10 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import RestClient from "../RestClient";
-import MeterForm from "../Meter/MeterForm";
+import RestClient from "../../RestClient";
+import MeterForm from "../../components/Meter/MeterForm";
 
-export default function Location() {
-    let { id } = useParams();
+
+export default function Location(props) {
+    alert(JSON.stringify(props));
+  
+    //let id = URLSearchParams.get(id);
+    var id = 1;
     let [ location, setLocation ] = React.useState(null);
 
     // https://reactjs.org/docs/hooks-effect.html
