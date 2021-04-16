@@ -1,7 +1,6 @@
 import React from "react";
 import Layout from '../components/Layout/Layout';
 import ThunderImage from '../images/lightning.jpg';
-// import { graphql } from 'gatsby';
 
 const appStyles1 = {
     backgroundColor: "black"
@@ -18,10 +17,8 @@ const imgStyles = {
 
 
 // markup
-//const IndexPage = ({data}) => {
   const IndexPage = () => {
   return (
-    // <Layout data={data}>      
     <Layout>
       <div style={appStyles}>
         <img style={imgStyles} src={ThunderImage} alt='Thunder storms' />
@@ -32,13 +29,3 @@ const imgStyles = {
 
 export default IndexPage;
 
-
-// export const query = graphql`    
-//     query HeaderQuery {
-//         site {
-//             siteMetadata {
-//                 appName
-//             }
-//         }
-//     }    
-// `

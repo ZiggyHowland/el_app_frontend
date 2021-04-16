@@ -1,5 +1,5 @@
 import { getGlobalVariables } from '../../environment.js';
-import './Reading.css';
+import './Reading.module.css';
 
 const data = [ 
     { 

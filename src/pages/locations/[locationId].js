@@ -1,14 +1,11 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import RestClient from "../../RestClient";
 import MeterForm from "../../components/Meter/MeterForm";
+import Layout from '../../components/Layout/Layout';
 
 
-export default function Location(props) {
-    alert(JSON.stringify(props));
-  
-    //let id = URLSearchParams.get(id);
-    var id = 1;
+export default function Location(props) {      
+    var id = props.params.locationId;
     let [ location, setLocation ] = React.useState(null);
 
     // https://reactjs.org/docs/hooks-effect.html
@@ -19,17 +16,14 @@ export default function Location(props) {
             .catch((error) => alert(error));
     }, []) // TODO: Removing the [] makes the code enter an infite loop. WHY?
 
-    if (location) {
-        return (
-            <React.Fragment>
-                <LocationDetails {...location} />
-                <AddMeterFromMarkup {...location} />
-            </React.Fragment>
-        )
-    }
-    else {
-        return<p>OK, that's a problem...</p>
-    }
+    return (
+        <Layout>
+            <LocationDetails {...location} />
+            <AddMeterFromMarkup {...location} />
+        </Layout>
+    )
+
+
 
     function LocationDetails(location) {
         const houseNumber = location.houseSection ? location.houseNumber + location.houseSection : location.houseNumber;

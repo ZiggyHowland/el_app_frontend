@@ -10,7 +10,6 @@ function Locations() {
 
     React.useEffect( () => {
         RestClient.getLocations()
-            //.then(locations => console.log(`All locations: ${JSON.stringify(locations)}`));
             .then(locations => setLocations(locations));
     }, [])
 
@@ -23,10 +22,10 @@ function Locations() {
                     {`${location.street} ${location.houseNumber}`}<br/>
                     {location.postCode}
                     <br/>
-                    <Link to={`/app/location/${location.id}`}>
+                    <Link to={`/locations/${location.id}`}>
                         View location    
                     </Link> &nbsp;&nbsp;|&nbsp;&nbsp;
-                    <Link to={`meters?locationId=${location.id}`}>
+                    <Link to={`/meters?locationId=${location.id}`}>
                         View meters
                     </Link>
 

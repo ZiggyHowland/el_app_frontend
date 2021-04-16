@@ -1,11 +1,11 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import RestClient from "../RestClient";
-import MeterForm from "../Meter/MeterForm";
+import RestClient from "../../RestClient";
+import MeterForm from "../../components/Meter/MeterForm";
+import Layout from "../../components/Layout/Layout";
 
-export default function Meter() {
-    let { id } = useParams();
-    let [ meter, setMeter ] = React.useState(null); // TODO: Understand this syntax
+export default function Meter(props) {
+    var id = props.params.meterId;
+    let [ meter, setMeter ] = React.useState(null);
 
     React.useEffect(() => {
         RestClient.getMeterById(id)
@@ -15,10 +15,10 @@ export default function Meter() {
 
     if (meter) {
         return (
-            <React.Fragment>
+            <Layout>
                 <MeterDetails {...meter} />
                 <UpdateMeterFromMarkup {...meter} />
-            </React.Fragment>
+            </Layout>
         )
     }
     else {

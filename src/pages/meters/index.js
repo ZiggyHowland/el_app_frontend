@@ -1,16 +1,13 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import RestClient from "../RestClient";
-import "./Meter.css";
-
+import { Link } from "gatsby";
+import RestClient from "../../RestClient";
+import "./Meter.module.css";
+import { useQueryParam } from "use-query-params";
+import Layout from "../../components/Layout/Layout";
 
 function Meters() {
-    // Source: https://reactgo.com/react-get-query-params/
-    const search = useLocation().search;
-    const locationId = new URLSearchParams(search).get('locationId');
-    
-    //const { url, path } = useRouteMatch();
-    //alert("URL: " + url + "\nPATH: " + path);
+    // Source: https://www.gatsbyjs.com/plugins/gatsby-plugin-use-query-params/
+    const [ locationId, setLocationId ] = useQueryParam("locationId");
 
     let [meters, setMeters] = React.useState([]);
 
@@ -18,7 +15,6 @@ function Meters() {
         (locationId == null ? RestClient.getMeters() : RestClient.getMetersByLocationId(locationId) )
             .then(meters => setMeters(meters));
     }, [])
-
 
     const handleDelete = ({id, description}) => (e) => {
         if (window.confirm(`Do you want to delete ${description} (id: ${id})?`)) {
@@ -32,13 +28,13 @@ function Meters() {
 
 
     return (
-        <div>
+        <Layout>
             <h1>Meters:</h1>            
             {meters.map(
                 (meter, i) => 
                 <div key={i} className="meter">
                     {meter.description} (id: {meter.id})<br/>
-                    <Link to={`meter/${meter.id}`}>
+                    <Link to={`/meters/${meter.id}`}>
                         Update description    
                     </Link> &nbsp;&nbsp;|&nbsp;&nbsp;
                     <a href="" onClick={handleDelete(meter)}>
@@ -47,7 +43,7 @@ function Meters() {
                 </div>
             )}
 
-        </div>
+        </Layout>
     )
 
 
