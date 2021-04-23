@@ -1,5 +1,7 @@
+import React from "react";
 import { getGlobalVariables } from '../../environment.js';
-import './Reading.module.css';
+import * as readingStyles from "./Reading.module.css";
+import Layout from '../../components/Layout/Layout';
 
 const data = [ 
     { 
@@ -160,8 +162,8 @@ function syncColumnsWithTableHeader(meters) {
 function ReadingDate ({year, month, day, meters}) {
     var date = new Date(year, month, day).toLocaleDateString(getGlobalVariables().date_locale, getGlobalVariables().date_options);
     return (
-        <div className="ReadingDate">
-            <div className="Date">{date}</div>
+        <div className={readingStyles.readingDate}>
+            <div className={readingStyles.date}>{date}</div>
             {meters.map(
                 (meter, i) =>
                     <div key={i}>
@@ -187,13 +189,15 @@ const LocationReadings = ({location, meters, dates}) =>
 
 function AllReadings() {
     return (
-        <div className="AllReadings">     
-            {transformedData.map(
-                (location, i) =>
-                    <LocationReadings key={i} {...location} />            
-            )}
+        <Layout>
+            <div className={readingStyles.allReadings}>     
+                {transformedData.map(
+                    (location, i) =>
+                        <LocationReadings key={i} {...location} />            
+                )}
 
-        </div>
+            </div>
+        </Layout>
     ) 
 }
 

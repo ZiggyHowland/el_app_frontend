@@ -1,19 +1,18 @@
-.AllReadings {
+.allReadings {
   background-color: white;    
-  color: #282c34;
-  position: absolute;
+  color: #282c34;  
   left: 0;
   width: 100%;  
 }
 
-.ReadingDate {
+.readingDate {
     background-color: #75BCFF;
     width: 300px;
     height: 120px;
     margin: 20px;
 }
 
-.Date {
+.date {
   background-color: #add3f7;
   width: 300px;
   text-align: left;
@@ -27,50 +26,4 @@ fieldset{
 	justify-content: flex-start;
 	align-items: stretch;
 	align-content: flex-start;
-}
-
-legend {
-  text-align: left;
-}
-
-.LocationReadings {
-
-}
-
-
- .ReadingTableHeader {
-
- }
-
-
-.ReadingTableRow {
-
-}
-
-
-th.date {
-  text-align: left;
-}
-
-td.date {
-  text-align: left;
-}
-
-
-.Readingsd {
-  border: 1px solid white;
-  border-radius: 3px;
-  margin: 10px;
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: stretch;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
 }
