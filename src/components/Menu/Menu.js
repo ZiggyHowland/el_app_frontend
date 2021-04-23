@@ -15,7 +15,7 @@ export default function Menu(props) {
 			<Nav
 				className="mr-auto"
 				variant="pills"
-				activeKey={window.location.pathname}
+				//activeKey={window.location.pathname}
 				// defaultActiveKey="/"				
 			>
 			
