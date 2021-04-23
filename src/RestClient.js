@@ -4,44 +4,44 @@ class RestClient {
     static baseUrl = getGlobalVariables().rest_base_url;
 
     static getLocations() {
-        const url = `${RestClient.baseUrl}/locations`;
+        const url = `${RestClient.baseUrl}/v1/locations`;
         return this.doGet_v2(url);
     }
 
     static getLocationById(id) {
-        const url = `${RestClient.baseUrl}/locations/${id}`;
+        const url = `${RestClient.baseUrl}/v1/locations/${id}`;
         return this.doGet_v2(url);
     }
 
 
 
     static getMeters() {
-        const url = `${RestClient.baseUrl}/meters`;
+        const url = `${RestClient.baseUrl}/v1/meters`;
         return this.doGet_v2(url);
     }
 
     static getMeterById(id) {
-        const url = `${RestClient.baseUrl}/meters/${id}`;
+        const url = `${RestClient.baseUrl}/v1/meters/${id}`;
         return this.doGet_v2(url);
     }
 
     static getMetersByLocationId(locationId) {
-        const url = `${RestClient.baseUrl}/meters?locationId=${locationId}`;
+        const url = `${RestClient.baseUrl}/v1/locations/${locationId}/meters`;
         return this.doGet_v2(url);
     }
 
     static addMeterAtLocationId(locationId, newMeter) {
-        const url = `${RestClient.baseUrl}/meters/${locationId}`;
+        const url = `${RestClient.baseUrl}/v1/locations/${locationId}/meters`;
         return this.doPost(url, newMeter);
     }
 
     static updateMeterById(id, meterToUpdate) {
-        const url = `${RestClient.baseUrl}/meters/${id}`;
+        const url = `${RestClient.baseUrl}/v1/meters/${id}`;
         return this.doPut(url, meterToUpdate);
     }
 
     static deleteMeterById(id) {
-        const url = `${RestClient.baseUrl}/meters/${id}`;
+        const url = `${RestClient.baseUrl}/v1/meters/${id}`;
         return this.doDelete(url);
     }
 
